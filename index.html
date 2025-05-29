@@ -59,6 +59,7 @@
             display: flex;
             gap: 2rem;
             align-items: center;
+            z-index: 999;
         }
 
         .navbar .nav-links a {
@@ -110,6 +111,7 @@
             border: none;
             cursor: pointer;
             color: #333;
+            z-index: 1000;
         }
 
         /* Hero Section */
@@ -1126,7 +1128,7 @@
                 grid-template-rows: auto;
             }
 
-            .grid-item:first-child {
+            x .grid-item:first-child {
                 grid-column: auto;
                 grid-row: auto;
             }
@@ -1143,6 +1145,28 @@
 
             .cta-container h2 {
                 font-size: 1.8rem;
+            }
+
+            @media (max-width: 600px) {
+                .hero-images {
+                    display: none;
+                    /* Or stack them vertically */
+                }
+            }
+
+            @media (max-width: 480px) {
+                .cta-button {
+                    font-size: 0.9rem;
+                    padding: 0.5rem 1rem;
+                }
+
+                .section-header h2 {
+                    font-size: 1.5rem;
+                }
+
+                .section-header p {
+                    font-size: 0.95rem;
+                }
             }
         }
     </style>
@@ -1411,7 +1435,8 @@
             <div class="contact-container" style="margin: 0 10px;">
                 <div class="contact-text">
                     <h1 style="color: white; font-size: 50px; font-weight: 600; margin-left: 50px;">Get in Touch</h1>
-                    <p style="color: white; font-size: 24px; font-weight: 300; margin-left: 50px;">Have something to share or inquire
+                    <p style="color: white; font-size: 24px; font-weight: 300; margin-left: 50px;">Have something to
+                        share or inquire
                         about?
                         We're here to listen. Use the form below to send us a
                         message, and we'll be sure to get back to you promptly. Whether you have questions, feedback, or
@@ -1437,7 +1462,8 @@
 
                         <div style="display: flex; align-items: center; gap: 8px; margin: 5px 0 15px 0;">
                             <input type="checkbox" id="robotCheck" required style="width: 16px; height: 16px;">
-                            <label for="robotCheck" style="font-size: 14px; color: #ffffff; font-weight: 600;">I'm not a robot</label>
+                            <label for="robotCheck" style="font-size: 14px; color: #ffffff; font-weight: 600;">I'm not a
+                                robot</label>
                         </div>
 
                         <button type="submit"
