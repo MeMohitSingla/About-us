@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Your Company</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 0.5rem 10rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .navbar .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .navbar .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar .nav-links li {
+            margin-left: 1.5rem;
+        }
+
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .nav-links a:hover {
+            color: #007BFF;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .nav-links.active {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            padding: 1rem 0;
+        }
+
+        /* Popup Form Styling */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .popup-content {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            animation: popupFadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes popupFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .popup-content h2 {
+            margin-bottom: 1rem;
+            color: #007BFF;
+            text-align: center;
+        }
+
+        .popup-content input,
+        .popup-content textarea {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .popup-content .submit {
+            background-color: #007BFF;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .popup-content .submit:hover {
+            background-color: #0056b3;
+        }
+
+        .popup-content .close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            color: #333;
+            cursor: pointer;
+        }
+
+
+        /* Sections */
+        section {
+            padding: 4rem 2rem;
+            background-color: #fff;
+            margin: 2rem auto;
+            max-width: 1000px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        section h2 {
+            margin-bottom: 1rem;
+            color: #007BFF;
+        }
+
+        section p {
+            margin-bottom: 1rem;
+        }
+
+        .reality {
+            padding: 2rem;
+            font-family: sans-serif;
+        }
+
+        .text-content h1 {
+            color: #134872;
+            font-weight: 600;
+            font-size: 2rem;
+            line-height: 1.2;
+        }
+
+        .text-content .highlight {
+            color: #70AA26;
+        }
+
+        .text-content p {
+            margin-top: 1rem;
+            line-height: 1.5rem;
+            font-weight: 500;
+            max-width: 600px;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+
+        /* Services */
+        .services {
+            background-color: #f9f9f9;
+            padding: 2rem 2rem;
+        }
+
+        .services-grid-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            max-width: 100%;
+            margin-top: 3rem;
+            justify-items: center;
+        }
+
+        .service-item {
+            background-color: #ffffff;
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            width: 170px;
+            height: 170px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-item img {
+            width: 168px;
+            height: 168px;
+            margin-bottom: 1rem;
+
+        }
+
+        .service-item h3 {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #111;
+            margin: 0;
+        }
+
+
+        /* Testimonials */
+        .testimonials .testimonial {
+            background-color: #f9f9f9;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid #007BFF;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #fff;
+            margin-top: 2rem;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
+            }
+
+            .services li {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo" style="height: 40px;"><img src="Snabbtech_logo.png" alt="Snabbtech_logo"
+                    style="height: 25px;"></div>
+            <button class="menu-toggle">☰</button>
+            <ul class="nav-links">
+                <li><a href="https://snabbtech.com/" class="active">Home</a></li>
+                <li><a href="https://snabbtech.com/about-us/">About</a></li>
+                <li><a href="https://snabbtech.com/software-development-services/">Services</a></li>
+                <li><a href="https://snabbtech.com/industry/">Industry</a></li>
+                <li><a href="https://snabbtech.com/portfolio/">Portfolio</a></li>
+                <li><a href="https://snabbtech.com/partnership/">Partnership</a></li>
+                <li><a href="https://snabbtech.com/blog-news/">Blog</a></li>
+                <li><a href="https://snabbtech.com/contact-us/">Contact Us</a></li>
+            </ul>
+            <button class="cta-button" onclick="openPopup()">Get in Touch</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero visible" style="background-color: #111;">
+            <img src="About Us.png" alt="about-us">
+            <h1 style="color: white;">We're Collaborative Digital Technology <span
+                    style="color: #70AA26;">Partners.</span></h1>
+            <p style="color: white;">We simply aim to help businesses get ahead of challenges & discover better growth
+                opportunities with our wide range of transformation services. We are committed to delivering solutions
+                that layout successful roadmaps</p>
+            <button class="cta-button" onclick="openPopup()">Get in Touch</button>
+            <div>
+                <img src="wrking.jpg" alt="working on Laptop">
+                <img src="deciding.jpg" alt="discovering ">
+            </div>
+        </section>
+
+        <section class="reality">
+            <div class="text-content">
+                <h1>
+                    Turning Thoughts into <span class="highlight">Reality</span>
+                </h1>
+                <p>
+                    “From thoughts to reality” encapsulates the journey of translating conceptualization into tangible
+                    outcomes through strategic planning and decisive action. It serves as the conduit between
+                    imagination and accomplishment.
+                </p>
+            </div>
+
+            <div class="image-grid">
+                <div class="top-row">
+                    <div class="grid-item"><img src="Girl_on_phone.jpg" alt=""></div>
+                    <div class="grid-item"><img src="deciding.jpg" alt=""></div>
+                    <div class="grid-item"><img src="wrking.jpg" alt=""></div>
+                </div>
+                <div class="bottom-row">
+                    <div class="grid-item"><img src="Rectangle954.png" alt=""></div>
+                    <div class="grid-item"><img src="girl_on_phone2.webp" alt=""></div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Our Story -->
+        <section class="our-story" id="story">
+            <h2>Our Story</h2>
+            <p>From a small business to market leaders, our journey has been marked by strategic expansion, innovation,
+                and a commitment to excellence.</p>
+        </section>
+
+        <!-- Our Mission -->
+        <section class="our-mission">
+            <h2>Our Mission</h2>
+            <p>We believe technology is at the core of innovation. Our goal is to empower enterprises to emerge as
+                leaders, regardless of their size or industry.</p>
+        </section>
+
+        <!-- Our Team -->
+        <section class="our-team">
+            <h2>Our Team</h2>
+            <p>Our passionate team is united by a commitment to excellence and innovation, working together to deliver
+                exceptional results.</p>
+        </section>
+
+        <!-- Services -->
+        <section class="services" id="services">
+            <div class="services-grid-list">
+                <div class="service-item">
+                    <img src="Food Delivery.png" alt="Delivery">
+                    <h3>Food Delivery</h3>
+                </div>
+                <div class="service-item">
+                    <img src="Grocery Delivery.png" alt="Grocery Delivery">
+                    <h3>Grocery Delivery</h3>
+                </div>
+                <div class="service-item">
+                    <img src="Home Services.png" alt="Home Services">
+                    <h3>Home Services</h3>
+                </div>
+                <div class="service-item">
+                    <img src="Pharma.png" alt="Pharma Delivery">
+                    <h3>Pharma Delivery</h3>
+                </div>
+                <div class="service-item">
+                    <img src="Beauty.png" alt="Beauty Services">
+                    <h3>Beauty Services</h3>
+                </div>
+                <div class="service-item">
+                    <img src="flower.png" alt="Flower Delivery">
+                    <h3>Flower Delivery</h3>
+                </div>
+                <div class="service-item">
+                    <img src="fleet management.png" alt="Fleet Management">
+                    <h3>Fleet Management</h3>
+                </div>
+                <div class="service-item">
+                    <img src="Pickup.png" alt="Pickup & Delivery">
+                    <h3>Pickup & Delivery</h3>
+                </div>
+                <div class="service-item">
+                    <img src="Beverages.png" alt="Beverages Delivery">
+                    <h3>Beverages Delivery</h3>
+                </div>
+                <div class="service-item">
+                    <img src="Beauty_Services.png" alt="Beauty Services">
+                    <h3>Beauty Services</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonial">
+                <p>"Their exceptional service and innovative solutions exceeded my expectations."</p>
+                <p><strong>Jyot</strong>, Founder</p>
+            </div>
+            <div class="testimonial">
+                <p>"SnabbTech developers are passionate and supportive, making our collaboration a success."</p>
+                <p><strong>Fahd</strong>, CEO</p>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <p>&copy; 2025 Your Company. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleBtn = document.querySelector(".menu-toggle");
+            const navLinks = document.querySelector(".nav-links");
+
+            if (toggleBtn && navLinks) {
+                toggleBtn.addEventListener("click", () => {
+                    navLinks.classList.toggle("active");
+                });
+            }
+
+            // Scroll animation
+            const animatedSections = document.querySelectorAll("section");
+
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("visible");
+                        }
+                    });
+                },
+                {
+                    threshold: 0.1,
+                }
+            );
+
+            animatedSections.forEach((section) => {
+                observer.observe(section);
+            });
+
+            // Smooth scroll
+            const links = document.querySelectorAll("a[href^='#']");
+            links.forEach((link) => {
+                link.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute("href"));
+                    if (target) {
+                        target.scrollIntoView({ behavior: "smooth" });
+                    }
+                });
+            });
+        });
+    </script>
+
+    <div class="popup" id="popupForm">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <h2>Let’s Snabb Success<br>For Your Business!</h2>
+            <input type="text" placeholder="Enter your Name...">
+            <input type="email" placeholder="Enter your email...">
+            <input id="phone" type="tel" name="phone" placeholder="Phone">
+            <textarea rows="4" placeholder="How we can help you?"></textarea>
+
+            <div style="margin-bottom: 15px;">
+                <input type="checkbox" id="robotCheck">
+                <label for="robotCheck">I'm not a robot</label>
+            </div>
+            <button class="submit">Submit</button>
+        </div>
+    </div>
+
+    <script>
+        function openPopup() {
+            document.getElementById("popupForm").style.display = "flex";
+        }
+
+        function closePopup() {
+            document.getElementById("popupForm").style.display = "none";
+        }
+
+    </script>
+
+</body>
+
+</html>

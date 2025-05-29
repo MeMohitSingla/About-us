@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Your Company</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 0;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 0.6rem 5%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar .logo {
+            height: 30px;
+        }
+
+        .navbar .logo img {
+            height: 24px;
+        }
+
+        .navbar .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 0.90rem;
+        }
+
+        .navbar .nav-links a:hover {
+            color: #70AA26;
+        }
+
+        .navbar .nav-links a.active {
+            color: #70AA26;
+        }
+
+        .navbar .nav-links li:last-child {
+            margin-left: 0.5rem;
+        }
+
+        .cta-button {
+            background-color: #70AA26;
+            color: #ffffff;
+            padding: 0.2rem 0.8rem;
+            border: none;
+            border-radius: 0;
+            font-weight: 250;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cta-button:hover {
+            background-color: #5d8f1f;
+            transform: translateY(-1px);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #333;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #000;
+            color: white;
+            padding: 6rem 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .hero-content {
+            flex: 1;
+            z-index: 2;
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #70AA26;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 span {
+            color: #70AA26;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 500px;
+            line-height: 1.7;
+        }
+
+        .hero-images {
+            flex: 1;
+            position: relative;
+            min-height: 400px;
+        }
+
+        .image-bottom {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 80%;
+            height: 80%;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
+        .image-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 70%;
+            height: 70%;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            z-index: 2;
+            transform: translateX(-20%);
+        }
+
+        .cta-button {
+            background-color: #70AA26;
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .cta-button:hover {
+            background-color: #5d8f1f;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 1024px) {
+            .hero-container {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .hero-content {
+                text-align: center;
+                margin-bottom: 2rem;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-images {
+                width: 100%;
+                min-height: 350px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .image-bottom {
+                width: 85%;
+            }
+
+            .image-top {
+                width: 75%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 4rem 5%;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .image-bottom {
+                width: 90%;
+                height: 70%;
+            }
+
+            .image-top {
+                width: 80%;
+                height: 60%;
+            }
+        }
+
+        /* Reality Section */
+        .reality {
+            padding: 5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            padding: 0 1.5rem;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            font-size: 2.7rem;
+            color: #134872;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+        }
+
+        .section-header h2 span {
+            color: #70AA26;
+        }
+
+        .section-header p {
+            font-size: 1.3rem;
+            color: #000000;
+            line-height: 1.6;
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 250px);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .grid-item {
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .grid-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .grid-item:first-child {
+            grid-column: 1 / 2;
+            grid-row: 1 / 3;
+        }
+
+        .grid-item:nth-child(2) {
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
+        }
+
+        .grid-item:nth-child(3) {
+            grid-column: 3 / 4;
+            grid-row: 1 / 2;
+        }
+
+        .grid-item:nth-child(4) {
+            grid-column: 2 / 3;
+            grid-row: 2 / 3;
+        }
+
+        .grid-item:nth-child(5) {
+            grid-column: 3 / 4;
+            grid-row: 2 / 3;
+        }
+
+        /* Story Section */
+        .story-section {
+            padding: 4rem 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            text-align: center;
+        }
+
+        .story-content h2 {
+            font-size: 2.7rem;
+            color: #134872;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .story-content .subheading {
+            font-size: 1.5rem;
+            color: #000;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .story-content .description {
+            color: #000;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin: 0 auto;
+            max-width: 800px;
+            font-weight: 300;
+        }
+
+        /* Mission Section */
+        .mission-section {
+            padding: 5rem 5%;
+            background-color: #fff;
+        }
+
+        .mission-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .mission-image {
+            order: -1;
+        }
+
+        .mission-section p {
+            text-align: left;
+            font-size: 24px;
+            line-height: 2.5rem;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 5rem 5%;
+            background-color: #f9fafb;
+        }
+
+        .team-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+        }
+
+        .team-section h2 {
+            text-align: left;
+        }
+
+        .team-section p {
+            text-align: left;
+            font-size: 24px;
+            line-height: 2.5rem;
+        }
+
+        /* Service */
+
+        .services-list {
+            background-color: #f9fafb;
+            padding: 3rem 1.5rem;
+        }
+
+        .services-grid-list {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-item {
+            text-align: center;
+            padding: 2rem 1rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+        }
+
+        .service-item:hover {
+            transform: translateY(-0.5rem);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-item img {
+            height: 60px;
+            width: auto;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-item h3 {
+            font-size: 1rem;
+            color: #333;
+            margin: 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            .services-grid-list {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .services-grid-list {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .services-grid-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 400px) {
+            .services-grid-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* CEO section */
+
+        .ceo_container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .ceo-section {
+            position: relative;
+            background-color: #000;
+            padding: 80px 0;
+            margin: 120px 65px;
+            border-radius: 10px;
+        }
+
+        .quote-wrapper {
+            position: relative;
+            max-width: 800px;
+        }
+
+        .quote-icon {
+            position: absolute;
+            left: 60px;
+            top: -90px;
+            width: 120px;
+            height: 100px;
+        }
+
+        .ceo-quote {
+            color: white;
+            font-size: 1.7rem;
+            line-height: 1.6;
+            font-style: italic;
+            font-weight: 500;
+            padding: 30px;
+            margin: 0;
+            text-align: left;
+        }
+
+        .ceo-image-wrapper {
+            position: absolute;
+            right: 40px;
+            top: -120px;
+            /* Overlapping upward */
+            width: 350px;
+            height: 450px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .ceo-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .ceo-section {
+                padding: 60px 0;
+            }
+
+            .quote-icon {
+                left: -20px;
+                width: 40px;
+            }
+
+            .ceo-quote {
+                font-size: 1.1rem;
+                padding: 20px;
+            }
+
+            .ceo-image-wrapper {
+                position: relative;
+                right: auto;
+                top: auto;
+                width: 150px;
+                height: 180px;
+                margin: 30px auto 0;
+            }
+        }
+
+        /* Services/Blog Section */
+        .services-section {
+            padding: 80px 40px;
+            background-color: #f9fafb;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #134872;
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2 span {
+            color: #70AA26;
+        }
+
+        .section-header p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .view-all {
+            text-align: right;
+            margin-bottom: 30px;
+        }
+
+        .view-all-link {
+            color: #161616;
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .view-all-link:hover {
+            color: #70AA26;
+        }
+
+        .blog-posts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-post {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .blog-post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .post-image {
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .post-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .blog-post:hover .post-image img {
+            transform: scale(1.05);
+        }
+
+        .blog-post-content-app {
+            padding: 25px;
+            background-color: rgb(19, 19, 85);
+            color: white;
+        }
+
+        .blog-post-content-model {
+            padding: 25px;
+            background-color: #c0dee2;
+            color: rgb(6, 6, 104);
+        }
+
+        .blog-post-meta {
+            color: #70AA26;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .blog-post-content h3 {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .btn {
+            background-color: #70AA26;
+            color: white;
+            padding: 8px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #5d8f1f;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .services-section {
+                padding: 60px 20px;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .view-all {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .blog-posts {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            padding: 5rem 5%;
+            background-color: #f9fafb;
+            text-align: center;
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: left;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-size: 5rem;
+            color: #70AA26;
+            opacity: 0.2;
+            position: absolute;
+            top: 0;
+            left: 1rem;
+            line-height: 1;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+
+        .author-info h4 {
+            color: #134872;
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info p {
+            color: #70AA26;
+            font-size: 0.9rem;
+            margin: 0;
+            font-style: normal;
+        }
+
+        /* ============ Contact Section ============ */
+        .contact-section {
+            background-color: var(--white);
+            padding: 5rem 0;
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .contact-text {
+            flex: 1;
+        }
+
+        .contact-text h1 {
+            font-size: 2.25rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .contact-text p {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-form {
+            flex: 1;
+        }
+
+        .forms {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            margin-bottom: 1.25rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .forms:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(125, 189, 52, 0.2);
+        }
+
+        textarea.forms {
+            min-height: 7.5rem;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a2c46;
+            color: white;
+            padding: 4rem 5% 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo img {
+            height: 40px;
+        }
+
+        .footer-about p {
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: #70AA26;
+            transform: translateY(-3px);
+        }
+
+        .footer-links h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #70AA26;
+        }
+
+        .footer-contact p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .footer-contact i {
+            margin-right: 0.8rem;
+            color: #70AA26;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Popup Form */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .popup-content {
+            background-color: #fff;
+            padding: 2.5rem;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: popupFadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes popupFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .popup-content h2 {
+            margin-bottom: 1.5rem;
+            color: #134872;
+            text-align: center;
+            font-size: 1.8rem;
+        }
+
+        .popup-content input,
+        .popup-content textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .popup-content input:focus,
+        .popup-content textarea:focus {
+            border-color: #70AA26;
+            outline: none;
+        }
+
+        .popup-content .submit {
+            background-color: #70AA26;
+            color: white;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .popup-content .submit:hover {
+            background-color: #5d8f1f;
+        }
+
+        .popup-content .close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            color: #888;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .popup-content .close:hover {
+            color: #333;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .checkbox-container input {
+            width: auto;
+            margin-right: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+
+            .story-container,
+            .mission-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .mission-image {
+                order: 0;
+            }
+
+            .hero-image {
+                position: relative;
+                width: 100%;
+                max-width: none;
+                right: auto;
+                top: auto;
+                transform: none;
+                margin-top: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem 5%;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                flex-direction: column;
+                padding: 1rem 5%;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 0.5rem 0;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .image-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+
+            .grid-item:first-child {
+                grid-column: auto;
+                grid-row: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.6rem;
+            }
+
+            .cta-container h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo"><img src="Snabbtech_logo.png" alt="Company Logo"></div>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="industry.html">Industry</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="partnership.html">Partnership</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><button class="cta-button" onclick="openPopup()">Get in Touch</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <img src="About Us.png" alt="about-us">
+                    <h1>We're Collaborative Digital Technology <span>Partners.</span></h1>
+                    <p>We simply aim to help businesses get ahead of challenges & discover better growth opportunities
+                        with our wide range of transformation services. We are committed to delivering solutions that
+                        layout successful roadmaps</p>
+                    <button class="cta-button" onclick="openPopup()">Get in Touch</button>
+                </div>
+
+                <div class="hero-images">
+                    <img src="wrking.jpg" alt="Team working" class="image-bottom">
+                    <img src="deciding.jpg" alt="Team discussing" class="image-top">
+                </div>
+            </div>
+        </section>
+        <!-- Reality Section -->
+        <section class="reality" style="background-color: #f9fafb;">
+            <div class="section-header">
+                <h2>Turning Thoughts into <span>Reality</span></h2>
+                <p>"From thoughts to reality" encapsulates the journey of translating conceptualization into tangible
+                    outcomes through strategic planning and decisive action. It serves as the conduit between
+                    imagination
+                    and accomplishment.</p>
+            </div>
+
+            <div class="image-grid">
+                <div class="grid-item">
+                    <img src="Girl_on_phone.jpg" alt="Team meeting">
+                </div>
+                <div class="grid-item">
+                    <img src="deciding.jpg" alt="Office space">
+                </div>
+                <div class="grid-item">
+                    <img src="wrking.jpg" alt="Brainstorming session">
+                </div>
+                <div class="grid-item">
+                    <img src="Rectangle954.png" alt="Working on laptop">
+                </div>
+                <div class="grid-item">
+                    <img src="girl_on_phone2.webp" alt="Team presentation">
+                </div>
+            </div>
+        </section>
+
+        <!-- Story Section -->
+        <section class="story-section">
+            <div class="story-content">
+                <h2>Our <span style="color: #70AA26;">Story</span></h2>
+                <p class="subheading">From a small business to market leaders</p>
+                <p class="description">Transitioning from a small business to achieving market leadership demands
+                    strategic expansion, innovation, and proficient execution. This journey necessitates recognizing
+                    market openings, amplifying operations, fostering brand credibility, and flexibly adjusting to
+                    evolving market landscapes. Success is often contingent upon robust leadership, customer-centricity,
+                    product distinctiveness, and an unwavering commitment to excellence.</p>
+            </div>
+        </section>
+
+        <!-- Mission Section -->
+        <section class="mission-section" style="background-color: #f9fafb;">
+            <div class="mission-container">
+                <div class="story-content">
+                    <h2>Our <span style="color: #70AA26;">Mission</span></h2>
+                    <p>We believe technology sits at the core of innovation, and business needs global attention to
+                        reach their full potential. For that, we make sure that every enterprise has the power to emerge
+                        as a leader irrespective of their business size, challenges, and industry-specific needs.</p>
+                </div>
+                <div class="story-image mission-image">
+                    <img src="Rectangle920.png" alt="Our mission and vision">
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="team-section">
+            <div class="team-container">
+                <div class="section-header">
+                    <h2>Our <span>Team</span></h2>
+                    <p>Our team is comprised of passionate individuals who are joined together by a shared commitment to
+                        excellence and innovation. With diverse backgrounds and a unified vision, we work together
+                        seamlessly to tackle challenges, ignite creativity, and achieve shared goals. In our
+                        collaboration, we embody resilience, creativity, and integrity, working in harmony to deliver
+                        exceptional results and make a meaningful impact in all of our endeavors.</p>
+                </div>
+                <div class="team-image">
+                    <img src="meeting_room.jpeg" alt="Our mission and vision">
+                </div>
+            </div>
+        </section>
+
+        <div class="Success" style="background-color: #f9fafb;">
+            <h1 style="font-size: 40px; margin-left: 65px;">Success Partners For Some</h1>
+            <h1 style="color: #77C58D; font-size: 36px; margin-left: 65px;">Really Good Reasons…</h2>
+        </div>
+
+        <section class="services-list">
+            <div class="services-grid-list">
+                <div class="service-item">
+                    <img src="Food Delivery.png" alt="Delivery">
+                    <h3>Food Delivery</h3>
+                </div>
+                <div class="service-item">
+                    <img src="Grocery Delivery.png" alt="Grocery Delivery">
+                    <h3>Grocery Delivery</h3>
+                </div>
+                <div class="service-item">
+                    <img src="Home Services.png" alt="Home Services">
+                    <h3>Home Services</h3>
+                </div>
+                <div class="service-item">
+                    <img src="Pharma.png" alt="Pharma Delivery">
+                    <h3>Pharma Delivery</h3>
+                </div>
+                <div class="service-item">
+                    <img src="Beauty.png" alt="Beauty Services">
+                    <h3>Beauty Services</h3>
+                </div>
+                <div class="service-item">
+                    <img src="flower.png" alt="Flower Delivery">
+                    <h3>Flower Delivery</h3>
+                </div>
+                <div class="service-item">
+                    <img src="fleet management.png" alt="Fleet Management">
+                    <h3>Fleet Management</h3>
+                </div>
+                <div class="service-item">
+                    <img src="Pickup.png" alt="Pickup & Delivery">
+                    <h3>Pickup & Delivery</h3>
+                </div>
+                <div class="service-item">
+                    <img src="Beverages.png" alt="Beverages Delivery">
+                    <h3>Beverages Delivery</h3>
+                </div>
+                <div class="service-item">
+                    <img src="Beauty_Services.png" alt="Beauty Services">
+                    <h3>Beauty Services</h3>
+                </div>
+            </div>
+        </section>
+
+        <section class="ceo-section">
+            <div class="ceo_container">
+                <div class="quote-wrapper">
+                    <img src="Quotes1.png" alt="Quote marks" class="quote-icon">
+                    <blockquote class="ceo-quote">
+                        "We are dedicated to assisting businesses in overcoming challenges and uncovering superior
+                        growth
+                        prospects through our comprehensive range of transformation services. Our commitment lies in
+                        delivering solutions that chart a successful roadmap for both the present and the future."
+                    </blockquote>
+                </div>
+                <div class="ceo-image-wrapper">
+                    <img src="Ashish.jpeg" alt="CEO Ashish" class="ceo-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <div class="testimonials-container">
+                <div class="section-header">
+                    <h2>What Our <span>Clients</span> Say</h2>
+                    <p>Aliquam tristique libero at dui sodales, et placerat orci lobortis. Donec metus lorem, vulputate
+                        at sapien.</p>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p>Their team delivered exceptional results that exceeded our expectations. The solution they
+                            developed has transformed our operations and significantly improved efficiency.</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>Robert Johnson</h4>
+                                <p>CEO, TechCorp</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>Working with this team was a game-changer for our business. Their innovative approach and
+                            technical expertise helped us solve complex challenges and achieve our goals.</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>Maria Garcia</h4>
+                                <p>Director, Innovate Solutions</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>The level of professionalism and dedication shown by their team was outstanding. They truly
+                            understood our needs and delivered a solution that perfectly matched our requirements.</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4>David Kim</h4>
+                                <p>CTO, Global Enterprises</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-section">
+            <div class="services-container">
+                <div class="section-header">
+                    <h2>Our Latest <span>Posts</span></h2>
+                    <p>We offer a comprehensive range of digital solutions designed to address your unique business
+                        challenges and drive growth.</p>
+                </div>
+
+                <div class="view-all">
+                    <a href="https://snabbtech.com/blog-news/" class="view-all-link">View all our posts →</a>
+                </div>
+
+                <div class="blog-posts">
+                    <div class="blog-post">
+                        <div class="post-image">
+                            <img src="mob_app.png" alt="Mobile App Development">
+                        </div>
+                        <div class="blog-post-content-app">
+                            <h3>Mobile App Development for Business Transformation</h3><br>
+                            <button class="btn">Read More</button>
+                        </div>
+                    </div>
+
+                    <div class="blog-post">
+                        <div class="post-image">
+                            <img src="Business-Model.jpg" alt="Business Idea">
+                        </div>
+                        <div class="blog-post-content-model">
+                            <h3>How Can Snabbtech Help You Transform Your Idea Into A Complete Business Model With
+                                Expertise?</h3>
+                            <button class="btn">Read More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section" style="background-color: #003366;">
+            <div class="contact-container" style="margin: 0 10px;">
+                <div class="contact-text">
+                    <h1 style="color: white; font-size: 50px; font-weight: 600; margin-left: 50px;">Get in Touch</h1>
+                    <p style="color: white; font-size: 24px; font-weight: 300; margin-left: 50px;">Have something to share or inquire
+                        about?
+                        We're here to listen. Use the form below to send us a
+                        message, and we'll be sure to get back to you promptly. Whether you have questions, feedback, or
+                        just want to connect, we're eager to hear from you. Your input matters to us, and we're
+                        dedicated to
+                        providing you with the support and assistance you need. Let's start the conversation!</p>
+                </div>
+                <div class="contact-form"
+                    style="max-width: 500px; margin: 0 auto; padding: 20px; font-family: 'Segoe UI', Roboto, sans-serif;">
+                    <form action="https://getform.io/f/662986cf-6b40-4f07-9c7a-0ffa3da953af" method="POST"
+                        style="display: flex; flex-direction: column; gap: 15px;">
+                        <input type="text" name="Name" placeholder="Enter your Name..." required
+                            style="padding: 12px 15px; border: 1px solid #ddd; border-radius: 4px; font-size: 16px;">
+
+                        <input type="email" name="Email" placeholder="Enter your Email..." required
+                            style="padding: 12px 15px; border: 1px solid #ddd; border-radius: 4px; font-size: 16px;">
+
+                        <input type="tel" name="phone" placeholder="Phone" required
+                            style="padding: 12px 15px; border: 1px solid #ddd; border-radius: 4px; font-size: 16px;">
+
+                        <textarea name="Message" placeholder="How can we help you?" required
+                            style="padding: 12px 15px; border: 1px solid #ddd; border-radius: 4px; font-size: 16px; min-height: 100px; resize: vertical;"></textarea>
+
+                        <div style="display: flex; align-items: center; gap: 8px; margin: 5px 0 15px 0;">
+                            <input type="checkbox" id="robotCheck" required style="width: 16px; height: 16px;">
+                            <label for="robotCheck" style="font-size: 14px; color: #ffffff; font-weight: 600;">I'm not a robot</label>
+                        </div>
+
+                        <button type="submit"
+                            style="padding: 12px 25px; background-color: #4CAF50; color: white; font-weight: 500; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; transition: background-color 0.3s;">
+                            Submit
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <img src="Snabbtech_logo.png" alt="Company Logo">
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3><br>
+                    <p><i class="fas fa-phone"></i>+91 9023893092</p>
+                    <p><i class="fas fa-envelope"></i>ashish@snabbtech.com</p>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Pages</h3>
+                <ul>
+                    <li><a href="https://snabbtech.com/about-us/">About</a></li>
+                    <li><a href="https://snabbtech.com/software-development-services/">Services</a></li>
+                    <li><a href="https://snabbtech.com/industry/">Industry</a></li>
+                    <li><a href="https://snabbtech.com/portfolio/">Portfolio</a></li>
+                    <li><a href="https://snabbtech.com/partnership/">Partnership</a></li>
+
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#">Web Development</a></li>
+                    <li><a href="#">Mobile App Development</a></li>
+                    <li><a href="#">Custom App Development</a></li>
+                </ul>
+            </div>
+            <div class="newsletter">
+                <h3>Our Newsletter</h3>
+                <div style="display: flex; gap: 5px; padding: 15px 0;">
+                    <input type="email" name="Email" id="Email" placeholder="Enter your Email..."
+                        style="padding: 6px 24px;">
+                    <button type="submit"
+                        style="background-color: #77C58D; color: white; font-size: 14px; padding: 6px 24px;">Send</button>
+                </div>
+                <div style="padding: 15px 0;">
+                    <p style="font-size: 12px;">Stay informed, inspired, and engaged with our curated newsletter,
+                        delivering the latest trends, insightful articles, and practical tips straight to your inbox.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <div class="copyright">
+            <p>&copy; Copyright 2023- 2024. Snabbtech</p>
+        </div>
+    </footer>
+
+    <!-- Popup Form -->
+    <div class="popup" id="popupForm">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <h2>Let's Start Your Project</h2>
+            <input type="text" placeholder="Enter your Name...">
+            <input type="email" placeholder="Enter your email...">
+            <input type="tel" placeholder="Phone">
+            <textarea rows="4" placeholder="How we can help you?"></textarea>
+            <div class="checkbox-container">
+                <input type="checkbox" id="robotCheck">
+                <label for="robotCheck">I'm not a robot</label>
+            </div>
+            <button class="submit">Submit</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleBtn = document.getElementById("menuToggle");
+            const navLinks = document.getElementById("navLinks");
+
+            if (toggleBtn && navLinks) {
+                toggleBtn.addEventListener("click", () => {
+                    navLinks.classList.toggle("active");
+                });
+            }
+
+            // Scroll animation
+            const animatedSections = document.querySelectorAll("section");
+
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("visible");
+                        }
+                    });
+                },
+                {
+                    threshold: 0.1,
+                }
+            );
+
+            animatedSections.forEach((section) => {
+                observer.observe(section);
+            });
+
+            // Close mobile menu when clicking a link
+            const navItems = document.querySelectorAll(".nav-links a");
+            navItems.forEach(item => {
+                item.addEventListener("click", () => {
+                    navLinks.classList.remove("active");
+                });
+            });
+        });
+
+        function openPopup() {
+            document.getElementById("popupForm").style.display = "flex";
+            document.body.style.overflow = "hidden"; // Prevent scrolling when popup is open
+        }
+
+        function closePopup() {
+            document.getElementById("popupForm").style.display = "none";
+            document.body.style.overflow = "auto"; // Re-enable scrolling
+        }
+
+        // Close popup when clicking outside the content
+        window.addEventListener("click", function (event) {
+            const popup = document.getElementById("popupForm");
+            if (event.target === popup) {
+                closePopup();
+            }
+        });
+    </script>
+</body>
+
+</html>
