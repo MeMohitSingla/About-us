@@ -23,6 +23,7 @@
             line-height: 1.6;
             color: #333;
             background-color: #fff;
+            overflow-x: hidden;
         }
 
         header {
@@ -52,6 +53,7 @@
 
         .navbar .logo img {
             height: 24px;
+            width: auto;
         }
 
         .navbar .nav-links {
@@ -59,7 +61,6 @@
             display: flex;
             gap: 2rem;
             align-items: center;
-            z-index: 999;
         }
 
         .navbar .nav-links a {
@@ -111,14 +112,13 @@
             border: none;
             cursor: pointer;
             color: #333;
-            z-index: 1000;
         }
 
         /* Hero Section */
         .hero {
             background-color: #000;
             color: white;
-            padding: 6rem 5%;
+            padding: 6rem 5% 4rem;
             position: relative;
             overflow: hidden;
         }
@@ -196,7 +196,7 @@
             transform: translateX(-20%);
         }
 
-        .cta-button {
+        .hero .cta-button {
             background-color: #70AA26;
             color: white;
             padding: 0.8rem 2rem;
@@ -208,65 +208,9 @@
             font-size: 1rem;
         }
 
-        .cta-button:hover {
+        .hero .cta-button:hover {
             background-color: #5d8f1f;
             transform: translateY(-2px);
-        }
-
-        @media (max-width: 1024px) {
-            .hero-container {
-                flex-direction: column;
-                gap: 2rem;
-            }
-
-            .hero-content {
-                text-align: center;
-                margin-bottom: 2rem;
-            }
-
-            .hero p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .hero-images {
-                width: 100%;
-                min-height: 350px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .image-bottom {
-                width: 85%;
-            }
-
-            .image-top {
-                width: 75%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero {
-                padding: 4rem 5%;
-            }
-
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .image-bottom {
-                width: 90%;
-                height: 70%;
-            }
-
-            .image-top {
-                width: 80%;
-                height: 60%;
-            }
         }
 
         /* Reality Section */
@@ -274,6 +218,7 @@
             padding: 5rem 5%;
             max-width: 1400px;
             margin: 0 auto;
+            background-color: #f9fafb;
         }
 
         .section-header {
@@ -371,6 +316,10 @@
             line-height: 1.3;
         }
 
+        .story-content h2 span {
+            color: #70AA26;
+        }
+
         .story-content .subheading {
             font-size: 1.5rem;
             color: #000;
@@ -391,7 +340,7 @@
         /* Mission Section */
         .mission-section {
             padding: 5rem 5%;
-            background-color: #fff;
+            background-color: #f9fafb;
         }
 
         .mission-container {
@@ -405,6 +354,12 @@
 
         .mission-image {
             order: -1;
+        }
+
+        .mission-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
         }
 
         .mission-section p {
@@ -423,10 +378,22 @@
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .team-section .section-header {
+            text-align: left;
+            margin-bottom: 2rem;
+            flex: 1 1 100%;
         }
 
         .team-section h2 {
             text-align: left;
+        }
+
+        .team-section h2 span {
+            color: #70AA26;
         }
 
         .team-section p {
@@ -435,11 +402,38 @@
             line-height: 2.5rem;
         }
 
-        /* Service */
+        .team-image {
+            flex: 1;
+            min-width: 300px;
+        }
 
+        .team-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Success Section */
+        .success-section {
+            background-color: #f9fafb;
+            padding: 2rem 5%;
+        }
+
+        .success-section h1 {
+            font-size: 2.5rem;
+            color: #134872;
+            margin-bottom: 0.5rem;
+        }
+
+        .success-section h1:last-child {
+            color: #70AA26;
+            font-size: 2rem;
+        }
+
+        /* Service */
         .services-list {
             background-color: #f9fafb;
-            padding: 3rem 1.5rem;
+            padding: 3rem 5%;
         }
 
         .services-grid-list {
@@ -481,33 +475,7 @@
             margin: 0;
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 1200px) {
-            .services-grid-list {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-
-        @media (max-width: 900px) {
-            .services-grid-list {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (max-width: 600px) {
-            .services-grid-list {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 400px) {
-            .services-grid-list {
-                grid-template-columns: 1fr;
-            }
-        }
-
         /* CEO section */
-
         .ceo_container {
             max-width: 1200px;
             margin: 0 auto;
@@ -520,13 +488,15 @@
             position: relative;
             background-color: #000;
             padding: 80px 0;
-            margin: 120px 65px;
+            margin: 120px 0;
             border-radius: 10px;
         }
 
         .quote-wrapper {
             position: relative;
             max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         .quote-icon {
@@ -552,7 +522,6 @@
             position: absolute;
             right: 40px;
             top: -120px;
-            /* Overlapping upward */
             width: 350px;
             height: 450px;
             border-radius: 8px;
@@ -566,180 +535,7 @@
             border-radius: 8px;
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 20px;
-            }
-
-            .ceo-section {
-                padding: 60px 0;
-            }
-
-            .quote-icon {
-                left: -20px;
-                width: 40px;
-            }
-
-            .ceo-quote {
-                font-size: 1.1rem;
-                padding: 20px;
-            }
-
-            .ceo-image-wrapper {
-                position: relative;
-                right: auto;
-                top: auto;
-                width: 150px;
-                height: 180px;
-                margin: 30px auto 0;
-            }
-        }
-
-        /* Services/Blog Section */
-        .services-section {
-            padding: 80px 40px;
-            background-color: #f9fafb;
-        }
-
-        .services-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            color: #134872;
-            margin-bottom: 1rem;
-        }
-
-        .section-header h2 span {
-            color: #70AA26;
-        }
-
-        .section-header p {
-            color: #666;
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .view-all {
-            text-align: right;
-            margin-bottom: 30px;
-        }
-
-        .view-all-link {
-            color: #161616;
-            text-decoration: none;
-            font-weight: 400;
-            transition: color 0.3s ease;
-        }
-
-        .view-all-link:hover {
-            color: #70AA26;
-        }
-
-        .blog-posts {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-        }
-
-        .blog-post {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .blog-post:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .post-image {
-            height: 300px;
-            overflow: hidden;
-        }
-
-        .post-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .blog-post:hover .post-image img {
-            transform: scale(1.05);
-        }
-
-        .blog-post-content-app {
-            padding: 25px;
-            background-color: rgb(19, 19, 85);
-            color: white;
-        }
-
-        .blog-post-content-model {
-            padding: 25px;
-            background-color: #c0dee2;
-            color: rgb(6, 6, 104);
-        }
-
-        .blog-post-meta {
-            color: #70AA26;
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-        }
-
-        .blog-post-content h3 {
-            font-size: 1.3rem;
-            color: #333;
-            margin-bottom: 20px;
-            line-height: 1.4;
-        }
-
-        .btn {
-            background-color: #70AA26;
-            color: white;
-            padding: 8px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn:hover {
-            background-color: #5d8f1f;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .services-section {
-                padding: 60px 20px;
-            }
-
-            .section-header h2 {
-                font-size: 2rem;
-            }
-
-            .view-all {
-                text-align: center;
-                margin-bottom: 20px;
-            }
-
-            .blog-posts {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Testimonials */
+        /* Testimonials Section */
         .testimonials-section {
             padding: 5rem 5%;
             background-color: #f9fafb;
@@ -810,54 +606,195 @@
             font-style: normal;
         }
 
-        /* ============ Contact Section ============ */
+        /* Blog Section */
+        .services-section {
+            padding: 80px 5%;
+            background-color: #f9fafb;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .view-all {
+            text-align: right;
+            margin-bottom: 30px;
+        }
+
+        .view-all-link {
+            color: #161616;
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        .view-all-link:hover {
+            color: #70AA26;
+        }
+
+        .blog-posts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-post {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .blog-post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .post-image {
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .post-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .blog-post:hover .post-image img {
+            transform: scale(1.05);
+        }
+
+        .blog-post-content-app {
+            padding: 25px;
+            background-color: rgb(19, 19, 85);
+            color: white;
+        }
+
+        .blog-post-content-model {
+            padding: 25px;
+            background-color: #c0dee2;
+            color: rgb(6, 6, 104);
+        }
+
+        .blog-post-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .btn {
+            background-color: #70AA26;
+            color: white;
+            padding: 8px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #5d8f1f;
+        }
+
+        /* Contact Section */
         .contact-section {
-            background-color: var(--white);
-            padding: 5rem 0;
+            background-color: #003366;
+            padding: 5rem 5%;
         }
 
         .contact-container {
             display: flex;
+            flex-wrap: wrap;
             gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .contact-text {
             flex: 1;
+            min-width: 300px;
         }
 
         .contact-text h1 {
-            font-size: 2.25rem;
-            margin-bottom: 1.25rem;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
         }
 
         .contact-text p {
-            font-size: 1rem;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 300;
+            line-height: 1.6;
             margin-bottom: 2rem;
         }
 
         .contact-form {
             flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: 'Segoe UI', Roboto, sans-serif;
         }
 
-        .forms {
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
             width: 100%;
-            padding: 0.75rem 1rem;
-            margin-bottom: 1.25rem;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
-        .forms:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(125, 189, 52, 0.2);
-        }
-
-        textarea.forms {
-            min-height: 7.5rem;
+        .contact-form textarea {
+            min-height: 100px;
             resize: vertical;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 5px 0 15px 0;
+        }
+
+        .checkbox-container input {
+            width: 16px;
+            height: 16px;
+        }
+
+        .checkbox-container label {
+            font-size: 14px;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .contact-form button {
+            padding: 12px 25px;
+            background-color: #4CAF50;
+            color: white;
+            font-weight: 500;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #3e8e41;
         }
 
         /* Footer */
@@ -881,6 +818,7 @@
 
         .footer-logo img {
             height: 40px;
+            width: auto;
         }
 
         .footer-about p {
@@ -945,6 +883,41 @@
         .footer-contact i {
             margin-right: 0.8rem;
             color: #70AA26;
+        }
+
+        .newsletter {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .newsletter-input {
+            display: flex;
+            gap: 5px;
+            padding: 15px 0;
+        }
+
+        .newsletter-input input {
+            padding: 6px 24px;
+            flex: 1;
+            border-radius: 4px;
+            border: none;
+        }
+
+        .newsletter-input button {
+            background-color: #77C58D;
+            color: white;
+            font-size: 14px;
+            padding: 6px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .newsletter p {
+            font-size: 12px;
+            padding: 15px 0;
+            opacity: 0.8;
+            line-height: 1.5;
         }
 
         .copyright {
@@ -1048,18 +1021,30 @@
             color: #333;
         }
 
-        .checkbox-container {
+        .popup .checkbox-container {
             display: flex;
             align-items: center;
             margin-bottom: 1.5rem;
         }
 
-        .checkbox-container input {
+        .popup .checkbox-container input {
             width: auto;
             margin-right: 0.5rem;
         }
 
-        /* Responsive */
+        /* ============ Responsive Adjustments ============ */
+        @media (max-width: 1200px) {
+            .services-grid-list {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .mission-section p,
+            .team-section p {
+                font-size: 1.2rem;
+                line-height: 1.8;
+            }
+        }
+
         @media (max-width: 1024px) {
             .hero h1 {
                 font-size: 2.4rem;
@@ -1083,6 +1068,43 @@
                 top: auto;
                 transform: none;
                 margin-top: 2rem;
+            }
+            
+            .ceo-image-wrapper {
+                width: 300px;
+                height: 380px;
+            }
+            
+            .ceo-quote {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .services-grid-list {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .ceo-section {
+                margin: 80px 0;
+            }
+            
+            .ceo-image-wrapper {
+                width: 250px;
+                height: 320px;
+                top: -80px;
+            }
+            
+            .ceo-quote {
+                font-size: 1.3rem;
+                padding: 20px;
+            }
+            
+            .quote-icon {
+                left: 20px;
+                top: -60px;
+                width: 80px;
+                height: 70px;
             }
         }
 
@@ -1115,12 +1137,40 @@
                 margin: 0.5rem 0;
             }
 
+            .hero {
+                padding-top: 5rem;
+            }
+            
+            .hero-container {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .hero-content {
+                text-align: center;
+                margin-bottom: 2rem;
+            }
+
             .hero h1 {
                 font-size: 2rem;
+            }
+            
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-images {
+                width: 100%;
+                min-height: 350px;
             }
 
             .section-header h2 {
                 font-size: 1.8rem;
+            }
+            
+            .section-header p {
+                font-size: 1.1rem;
             }
 
             .image-grid {
@@ -1128,45 +1178,127 @@
                 grid-template-rows: auto;
             }
 
-            x .grid-item:first-child {
+            .grid-item:first-child {
                 grid-column: auto;
                 grid-row: auto;
+            }
+            
+            .ceo-section {
+                padding: 60px 0;
+            }
+            
+            .ceo-image-wrapper {
+                position: relative;
+                right: auto;
+                top: auto;
+                width: 100%;
+                max-width: 300px;
+                height: 350px;
+                margin: 0 auto 30px;
+            }
+            
+            .quote-icon {
+                position: static;
+                margin-bottom: 20px;
+                width: 60px;
+                height: 50px;
+            }
+            
+            .ceo-quote {
+                text-align: center;
+                padding: 0;
+            }
+            
+            .success-section h1 {
+                font-size: 2rem;
+            }
+            
+            .success-section h1:last-child {
+                font-size: 1.5rem;
+            }
+            
+            .contact-text h1 {
+                font-size: 2rem;
+            }
+            
+            .contact-text p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .services-grid-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .image-bottom {
+                width: 90%;
+                height: 70%;
+            }
+
+            .image-top {
+                width: 80%;
+                height: 60%;
+            }
+            
+            .mission-section p,
+            .team-section p {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+            
+            .story-content h2 {
+                font-size: 2rem;
+            }
+            
+            .story-content .subheading {
+                font-size: 1.2rem;
             }
         }
 
         @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 1.8rem;
+            .hero {
+                padding: 4rem 5%;
             }
 
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            
             .section-header h2 {
                 font-size: 1.6rem;
             }
-
+            
             .cta-container h2 {
                 font-size: 1.8rem;
             }
-
-            @media (max-width: 600px) {
-                .hero-images {
-                    display: none;
-                    /* Or stack them vertically */
-                }
+            
+            .services-grid-list {
+                grid-template-columns: 1fr;
             }
-
-            @media (max-width: 480px) {
-                .cta-button {
-                    font-size: 0.9rem;
-                    padding: 0.5rem 1rem;
-                }
-
-                .section-header h2 {
-                    font-size: 1.5rem;
-                }
-
-                .section-header p {
-                    font-size: 0.95rem;
-                }
+            
+            .blog-posts {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-text h1 {
+                font-size: 1.8rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-input {
+                flex-direction: column;
+            }
+            
+            .newsletter-input button {
+                width: 100%;
             }
         }
     </style>
@@ -1211,7 +1343,7 @@
             </div>
         </section>
         <!-- Reality Section -->
-        <section class="reality" style="background-color: #f9fafb;">
+        <section class="reality">
             <div class="section-header">
                 <h2>Turning Thoughts into <span>Reality</span></h2>
                 <p>"From thoughts to reality" encapsulates the journey of translating conceptualization into tangible
@@ -1242,7 +1374,7 @@
         <!-- Story Section -->
         <section class="story-section">
             <div class="story-content">
-                <h2>Our <span style="color: #70AA26;">Story</span></h2>
+                <h2>Our <span>Story</span></h2>
                 <p class="subheading">From a small business to market leaders</p>
                 <p class="description">Transitioning from a small business to achieving market leadership demands
                     strategic expansion, innovation, and proficient execution. This journey necessitates recognizing
@@ -1253,10 +1385,10 @@
         </section>
 
         <!-- Mission Section -->
-        <section class="mission-section" style="background-color: #f9fafb;">
+        <section class="mission-section">
             <div class="mission-container">
                 <div class="story-content">
-                    <h2>Our <span style="color: #70AA26;">Mission</span></h2>
+                    <h2>Our <span>Mission</span></h2>
                     <p>We believe technology sits at the core of innovation, and business needs global attention to
                         reach their full potential. For that, we make sure that every enterprise has the power to emerge
                         as a leader irrespective of their business size, challenges, and industry-specific needs.</p>
@@ -1284,10 +1416,10 @@
             </div>
         </section>
 
-        <div class="Success" style="background-color: #f9fafb;">
-            <h1 style="font-size: 40px; margin-left: 65px;">Success Partners For Some</h1>
-            <h1 style="color: #77C58D; font-size: 36px; margin-left: 65px;">Really Good Reasons…</h2>
-        </div>
+        <section class="success-section">
+            <h1>Success Partners For Some</h1>
+            <h1>Really Good Reasons…</h1>
+        </section>
 
         <section class="services-list">
             <div class="services-grid-list">
@@ -1431,50 +1563,30 @@
             </div>
         </section>
 
-        <section class="contact-section" style="background-color: #003366;">
-            <div class="contact-container" style="margin: 0 10px;">
+        <section class="contact-section">
+            <div class="contact-container">
                 <div class="contact-text">
-                    <h1 style="color: white; font-size: 50px; font-weight: 600; margin-left: 50px;">Get in Touch</h1>
-                    <p style="color: white; font-size: 24px; font-weight: 300; margin-left: 50px;">Have something to
-                        share or inquire
-                        about?
-                        We're here to listen. Use the form below to send us a
+                    <h1>Get in Touch</h1>
+                    <p>Have something to share or inquire about? We're here to listen. Use the form below to send us a
                         message, and we'll be sure to get back to you promptly. Whether you have questions, feedback, or
                         just want to connect, we're eager to hear from you. Your input matters to us, and we're
-                        dedicated to
-                        providing you with the support and assistance you need. Let's start the conversation!</p>
+                        dedicated to providing you with the support and assistance you need. Let's start the conversation!</p>
                 </div>
-                <div class="contact-form"
-                    style="max-width: 500px; margin: 0 auto; padding: 20px; font-family: 'Segoe UI', Roboto, sans-serif;">
-                    <form action="https://getform.io/f/662986cf-6b40-4f07-9c7a-0ffa3da953af" method="POST"
-                        style="display: flex; flex-direction: column; gap: 15px;">
-                        <input type="text" name="Name" placeholder="Enter your Name..." required
-                            style="padding: 12px 15px; border: 1px solid #ddd; border-radius: 4px; font-size: 16px;">
-
-                        <input type="email" name="Email" placeholder="Enter your Email..." required
-                            style="padding: 12px 15px; border: 1px solid #ddd; border-radius: 4px; font-size: 16px;">
-
-                        <input type="tel" name="phone" placeholder="Phone" required
-                            style="padding: 12px 15px; border: 1px solid #ddd; border-radius: 4px; font-size: 16px;">
-
-                        <textarea name="Message" placeholder="How can we help you?" required
-                            style="padding: 12px 15px; border: 1px solid #ddd; border-radius: 4px; font-size: 16px; min-height: 100px; resize: vertical;"></textarea>
-
-                        <div style="display: flex; align-items: center; gap: 8px; margin: 5px 0 15px 0;">
-                            <input type="checkbox" id="robotCheck" required style="width: 16px; height: 16px;">
-                            <label for="robotCheck" style="font-size: 14px; color: #ffffff; font-weight: 600;">I'm not a
-                                robot</label>
+                <div class="contact-form">
+                    <form action="https://getform.io/f/662986cf-6b40-4f07-9c7a-0ffa3da953af" method="POST">
+                        <input type="text" name="Name" placeholder="Enter your Name..." required>
+                        <input type="email" name="Email" placeholder="Enter your Email..." required>
+                        <input type="tel" name="phone" placeholder="Phone" required>
+                        <textarea name="Message" placeholder="How can we help you?" required></textarea>
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="robotCheck" required>
+                            <label for="robotCheck">I'm not a robot</label>
                         </div>
-
-                        <button type="submit"
-                            style="padding: 12px 25px; background-color: #4CAF50; color: white; font-weight: 500; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; transition: background-color 0.3s;">
-                            Submit
-                        </button>
+                        <button type="submit">Submit</button>
                     </form>
                 </div>
             </div>
         </section>
-
     </main>
 
     <footer>
@@ -1503,7 +1615,6 @@
                     <li><a href="https://snabbtech.com/industry/">Industry</a></li>
                     <li><a href="https://snabbtech.com/portfolio/">Portfolio</a></li>
                     <li><a href="https://snabbtech.com/partnership/">Partnership</a></li>
-
                 </ul>
             </div>
             <div class="footer-links">
@@ -1516,19 +1627,13 @@
             </div>
             <div class="newsletter">
                 <h3>Our Newsletter</h3>
-                <div style="display: flex; gap: 5px; padding: 15px 0;">
-                    <input type="email" name="Email" id="Email" placeholder="Enter your Email..."
-                        style="padding: 6px 24px;">
-                    <button type="submit"
-                        style="background-color: #77C58D; color: white; font-size: 14px; padding: 6px 24px;">Send</button>
+                <div class="newsletter-input">
+                    <input type="email" name="Email" id="Email" placeholder="Enter your Email...">
+                    <button type="submit">Send</button>
                 </div>
-                <div style="padding: 15px 0;">
-                    <p style="font-size: 12px;">Stay informed, inspired, and engaged with our curated newsletter,
-                        delivering the latest trends, insightful articles, and practical tips straight to your inbox.
-                    </p>
-                </div>
+                <p>Stay informed, inspired, and engaged with our curated newsletter,
+                    delivering the latest trends, insightful articles, and practical tips straight to your inbox.</p>
             </div>
-
         </div>
         <div class="copyright">
             <p>&copy; Copyright 2023- 2024. Snabbtech</p>
@@ -1545,8 +1650,8 @@
             <input type="tel" placeholder="Phone">
             <textarea rows="4" placeholder="How we can help you?"></textarea>
             <div class="checkbox-container">
-                <input type="checkbox" id="robotCheck">
-                <label for="robotCheck">I'm not a robot</label>
+                <input type="checkbox" id="popupRobotCheck">
+                <label for="popupRobotCheck">I'm not a robot</label>
             </div>
             <button class="submit">Submit</button>
         </div>
