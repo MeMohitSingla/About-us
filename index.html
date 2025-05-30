@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>About Us - Your Company</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -1037,7 +1037,7 @@
             .services-grid-list {
                 grid-template-columns: repeat(4, 1fr);
             }
-            
+
             .mission-section p,
             .team-section p {
                 font-size: 1.2rem;
@@ -1069,12 +1069,12 @@
                 transform: none;
                 margin-top: 2rem;
             }
-            
+
             .ceo-image-wrapper {
                 width: 300px;
                 height: 380px;
             }
-            
+
             .ceo-quote {
                 font-size: 1.5rem;
             }
@@ -1084,22 +1084,22 @@
             .services-grid-list {
                 grid-template-columns: repeat(3, 1fr);
             }
-            
+
             .ceo-section {
                 margin: 80px 0;
             }
-            
+
             .ceo-image-wrapper {
                 width: 250px;
                 height: 320px;
                 top: -80px;
             }
-            
+
             .ceo-quote {
                 font-size: 1.3rem;
                 padding: 20px;
             }
-            
+
             .quote-icon {
                 left: 20px;
                 top: -60px;
@@ -1115,32 +1115,39 @@
 
             .menu-toggle {
                 display: block;
+                z-index: 1001;
             }
 
             .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                height: 100vh;
                 background-color: #fff;
                 flex-direction: column;
-                padding: 1rem 5%;
+                padding: 5rem 2rem 2rem;
                 box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease;
+                z-index: 1000;
             }
 
             .nav-links.active {
-                display: flex;
+                left: 0;
             }
 
             .nav-links li {
-                margin: 0.5rem 0;
+                margin: 1rem 0;
+            }
+
+            .nav-links li:last-child {
+                margin-left: 0;
             }
 
             .hero {
                 padding-top: 5rem;
             }
-            
+
             .hero-container {
                 flex-direction: column;
                 gap: 2rem;
@@ -1154,7 +1161,7 @@
             .hero h1 {
                 font-size: 2rem;
             }
-            
+
             .hero p {
                 margin-left: auto;
                 margin-right: auto;
@@ -1168,7 +1175,7 @@
             .section-header h2 {
                 font-size: 1.8rem;
             }
-            
+
             .section-header p {
                 font-size: 1.1rem;
             }
@@ -1182,11 +1189,11 @@
                 grid-column: auto;
                 grid-row: auto;
             }
-            
+
             .ceo-section {
                 padding: 60px 0;
             }
-            
+
             .ceo-image-wrapper {
                 position: relative;
                 right: auto;
@@ -1196,31 +1203,31 @@
                 height: 350px;
                 margin: 0 auto 30px;
             }
-            
+
             .quote-icon {
                 position: static;
                 margin-bottom: 20px;
                 width: 60px;
                 height: 50px;
             }
-            
+
             .ceo-quote {
                 text-align: center;
                 padding: 0;
             }
-            
+
             .success-section h1 {
                 font-size: 2rem;
             }
-            
+
             .success-section h1:last-child {
                 font-size: 1.5rem;
             }
-            
+
             .contact-text h1 {
                 font-size: 2rem;
             }
-            
+
             .contact-text p {
                 font-size: 1rem;
             }
@@ -1230,11 +1237,11 @@
             .services-grid-list {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
+
             .hero h1 {
                 font-size: 1.8rem;
             }
-            
+
             .image-bottom {
                 width: 90%;
                 height: 70%;
@@ -1244,17 +1251,17 @@
                 width: 80%;
                 height: 60%;
             }
-            
+
             .mission-section p,
             .team-section p {
                 font-size: 1rem;
                 line-height: 1.6;
             }
-            
+
             .story-content h2 {
                 font-size: 2rem;
             }
-            
+
             .story-content .subheading {
                 font-size: 1.2rem;
             }
@@ -1268,35 +1275,35 @@
             .hero h1 {
                 font-size: 1.6rem;
             }
-            
+
             .section-header h2 {
                 font-size: 1.6rem;
             }
-            
+
             .cta-container h2 {
                 font-size: 1.8rem;
             }
-            
+
             .services-grid-list {
                 grid-template-columns: 1fr;
             }
-            
+
             .blog-posts {
                 grid-template-columns: 1fr;
             }
-            
+
             .contact-text h1 {
                 font-size: 1.8rem;
             }
-            
+
             .footer-container {
                 grid-template-columns: 1fr;
             }
-            
+
             .newsletter-input {
                 flex-direction: column;
             }
-            
+
             .newsletter-input button {
                 width: 100%;
             }
@@ -1570,7 +1577,8 @@
                     <p>Have something to share or inquire about? We're here to listen. Use the form below to send us a
                         message, and we'll be sure to get back to you promptly. Whether you have questions, feedback, or
                         just want to connect, we're eager to hear from you. Your input matters to us, and we're
-                        dedicated to providing you with the support and assistance you need. Let's start the conversation!</p>
+                        dedicated to providing you with the support and assistance you need. Let's start the
+                        conversation!</p>
                 </div>
                 <div class="contact-form">
                     <form action="https://getform.io/f/662986cf-6b40-4f07-9c7a-0ffa3da953af" method="POST">
@@ -1661,39 +1669,54 @@
         document.addEventListener("DOMContentLoaded", function () {
             const toggleBtn = document.getElementById("menuToggle");
             const navLinks = document.getElementById("navLinks");
+            const body = document.body;
 
             if (toggleBtn && navLinks) {
                 toggleBtn.addEventListener("click", () => {
                     navLinks.classList.toggle("active");
+                    // Toggle body overflow to prevent scrolling when menu is open
+                    body.style.overflow = navLinks.classList.contains("active") ? "hidden" : "auto";
+                    // Change menu icon between ☰ and ✕
+                    toggleBtn.innerHTML = navLinks.classList.contains("active") ? "✕" : "☰";
+                });
+
+                // Close menu when clicking on a link
+                const navItems = document.querySelectorAll(".nav-links a");
+                navItems.forEach(item => {
+                    item.addEventListener("click", () => {
+                        navLinks.classList.remove("active");
+                        body.style.overflow = "auto";
+                        toggleBtn.innerHTML = "☰";
+                    });
                 });
             }
+        });
 
-            // Scroll animation
-            const animatedSections = document.querySelectorAll("section");
+        // Scroll animation
+        const animatedSections = document.querySelectorAll("section");
 
-            const observer = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add("visible");
-                        }
-                    });
-                },
-                {
-                    threshold: 0.1,
-                }
-            );
-
-            animatedSections.forEach((section) => {
-                observer.observe(section);
-            });
-
-            // Close mobile menu when clicking a link
-            const navItems = document.querySelectorAll(".nav-links a");
-            navItems.forEach(item => {
-                item.addEventListener("click", () => {
-                    navLinks.classList.remove("active");
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
                 });
+            },
+            {
+                threshold: 0.1,
+            }
+        );
+
+        animatedSections.forEach((section) => {
+            observer.observe(section);
+        });
+
+        // Close mobile menu when clicking a link
+        const navItems = document.querySelectorAll(".nav-links a");
+        navItems.forEach(item => {
+            item.addEventListener("click", () => {
+                navLinks.classList.remove("active");
             });
         });
 
